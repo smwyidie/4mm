@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поджирало данных</title>
+    <style>
+        body { width: 350px; font-family: sans-serif; padding: 15px; color: #333; }
+        h1 { font-size: 18px; text-align: center; }
+        .controls { display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px; }
+        label { font-weight: bold; font-size: 14px; display: flex; flex-direction: column; gap: 5px; }
+        select, button { padding: 8px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; }
+        button { background-color: #007bff; color: white; border: none; cursor: pointer; font-weight: bold; }
+        button:hover { background-color: #0056b3; }
+        button:disabled { background-color: #999; cursor: not-allowed; }
+        #result { margin-top: 15px; padding: 10px; border-radius: 6px; background: #f4f4f4; min-height: 80px; white-space: pre-wrap; font-size: 13px; }
+        #loader { display: none; text-align: center; font-style: italic; color: #666; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <h1>Поджирало данных 🍪</h1>
+    
+    <div class="controls">
+        <label>
+            За какое время:
+            <select id="timeRange">
+                <option value="1">Последний час</option>
+                <option value="3">Последние 3 часа</option>
+                <option value="24">За сегодня</option>
+                <option value="168">За неделю</option>
+            </select>
+        </label>
+        
+        <label>
+            Тон анализа:
+            <select id="tone">
+                <option value="joke">Поугарать над тобой</option>
+                <option value="serious">Что-то четкое по делу сказать</option>
+            </select>
+        </label>
+        
+        <button id="summarizeBtn">Сделать</button>
+    </div>
+
+    <div id="loader">Нейронка изучает твою историю и осуждает...</div>
+    <div id="result">Здесь будет вердикт...</div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
